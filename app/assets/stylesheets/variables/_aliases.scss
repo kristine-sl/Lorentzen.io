@@ -1,0 +1,42 @@
+
+// -- Aliases -----------------------------------------
+
+// ---------------------
+// Configuration Aliases
+// ---------------------
+
+@function breakpoint( $name ) {
+    @if ( not map_has_key( $breakpoints, $name ) ) {
+        @warn _error( _quote( $name ) + " does not exist in given map." );
+    }
+    @return map-get( $breakpoints, $name );
+}
+
+@function color( $name ) {
+    @if ( not map_has_key( $colors, $name ) ) {
+        @warn _error( _quote( $name ) + " does not exist in given map." );
+    }
+    @return map-get( $colors, $name );
+}
+
+@function layout( $name ) {
+    @if ( not map_has_key( $layout, $name ) ) {
+        @error _error( "'#{$name}' does not exist in map $layout." );
+    }
+    @return map-get( $layout, $name );
+}
+
+@function transition( $name ) {
+    @if ( not map_has_key( $transitions, $name ) ) {
+        @warn _error( _quote( $name ) + " does not exist in given map." );
+    }
+    @return map-get( $transitions, $name );
+}
+
+$constants: (
+    GOLDEN_RATIO: 0.618,
+);
+
+@function constant( $name ) {
+    @return map-get( $constants, $name );
+}

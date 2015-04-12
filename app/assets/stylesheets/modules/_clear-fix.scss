@@ -1,0 +1,14 @@
+@include new-module( 'clear-fix' )
+{
+  &:before,
+  &:after
+  {
+    content: '';
+    display: table;
+  }
+
+  &:after
+  {
+    clear: both;
+  }
+}

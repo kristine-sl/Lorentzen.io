@@ -1,4 +1,0 @@
-
-@function is-list( $variable ) {
-    @return type-of( $variable ) == "list";
-}

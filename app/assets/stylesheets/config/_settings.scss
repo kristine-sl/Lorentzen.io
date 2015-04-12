@@ -1,0 +1,27 @@
+
+// -- Settings ----------------------------------------
+
+$framework: (
+
+    // Breakpoints
+    // -----------
+    breakpoints: (
+
+        // Specify which map the framework should use to retrieve
+        // valid breakpoints values.
+        'map': $breakpoints,
+
+        // Values specified in the breakpoints map will automatically
+        // be converted to this unit.
+        'unit': em,
+
+        //
+        'mobile-first': true,
+    ),
+
+    // Components
+    // ----------
+    components: (
+
+    ),
+);

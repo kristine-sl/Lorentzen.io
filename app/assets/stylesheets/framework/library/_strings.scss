@@ -1,0 +1,82 @@
+
+// -- Strings -----------------------------------------
+
+// ------------------------------------
+// Capitalize first letter of a string.
+// ------------------------------------
+
+@function capitalize-first( $string ) {
+    @return to-upper-case( str-slice( $string, 1, 1 ) ) + str-slice( $string, 2 );
+}
+
+// ---------------------------------
+// Capitalize all words in a string.
+// ---------------------------------
+
+@function capitalize( $string ) {
+    $progress: $string;
+    $result: "";
+
+    $running: true;
+
+    @while $running {
+        $index: str-index($progress, " ");
+        @if $index {
+            $result: $result + capitalize(str-slice($progress, 1, $index));
+            $progress: str-slice($progress, ($index + 1));
+        }
+        @else {
+            $running: false;
+        }
+    }
+
+    @return capitalize($result) + capitalize($progress);
+}
+
+// -----------------------------------------
+// Checks if the given variable is a string.
+// -----------------------------------------
+
+@function is-string( $variable ) {
+    @return type-of( $variable ) == 'string';
+}
+
+// ------------------
+// Camelize a string.
+// ------------------
+
+@function camelize( $string ) {
+    $progress: $string;
+    $result: "";
+
+    @while str-length($progress) > 0  {
+        $char: str-slice($progress, 1, 1);
+
+        @if contain($exclude, $char) {
+            $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+        }
+        @else {
+            $result: $result + $char;
+            $progress: str-slice($progress, 2);
+        }
+    }
+
+    @return $result;
+}
+
+// ---------------------------------------
+// Replace value in string with new value.
+// ---------------------------------------
+
+@function str-replace( $string, $search, $replace ) {
+    $length: str-length($replace);
+    $index: str-index($string, $search);
+    $slice: $string;
+    @while $index != 0 {
+        $slice: str-slice($slice, 0, $index - 1);
+        $slice: $slice + $replace;
+        $slice: $slice + str-slice($string, $index + $length);
+        $index: str-index($slice, $search);
+    }
+    @return $slice;
+}

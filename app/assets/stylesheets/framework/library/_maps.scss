@@ -1,0 +1,122 @@
+
+// -- Maps --------------------------------------------
+
+// --------------------------------------------
+// Multiply a map with a number or another map.
+// --------------------------------------------
+
+@function map-multiply( $map, $nultiplier ) {
+    $result: ();
+
+    @each $key, $value in $map {
+        $result: map-merge( $result, ( #{$key}: $value * $nultiplier ) );
+    }
+
+    @return $result;
+}
+
+@function map-multiply-by-map( $map, $map2, $order: null ) {
+    $result: ();
+
+    $keys: unique( join( map-keys( $map ), map-keys( $map2 ) ) );
+
+    @if $order {
+        $keys: list-sort( $keys, $order );
+    }
+
+    $value: 0;
+    $multiplier: 1;
+
+    @each $key in $keys {
+
+        @if map-has-key( $map, $key ) {
+            $value: map-get( $map, $key );
+        }
+
+        @if map-has-key( $map2, $key ) {
+            $multiplier: map-get( $map2, $key );
+        }
+
+        $result: map-merge( $result, ( #{$key}: $value * $multiplier ) );
+    }
+
+    @return $result;
+}
+
+// --------------------------------------------
+// Multiply a map with a number or another map.
+// --------------------------------------------
+
+@function map-add( $map, $variable ) {
+    $result: ();
+
+    @each $key, $value in $map {
+        $result: map-merge( $result, ( #{$key}: $value + $variable ) );
+    }
+
+    @return $result;
+}
+
+@function map-add-by-map( $map, $map2, $order: null ) {
+    $result: ();
+
+    $keys: unique( join( map-keys( $map ), map-keys( $map2 ) ) );
+
+    @if $order {
+        $keys: list-sort( $keys, $order );
+    }
+
+    $value: 0;
+    $multiplier: 1;
+
+    @each $key in $keys {
+
+        @if map-has-key( $map, $key ) {
+            $value: map-get( $map, $key );
+        }
+
+        @if map-has-key( $map2, $key ) {
+            $multiplier: map-get( $map2, $key );
+        }
+
+        $result: map-merge( $result, ( #{$key}: $value + $multiplier ) );
+    }
+
+    @return $result;
+}
+
+// --------------------------------------------
+// Multiply a map with a number or another map.
+// --------------------------------------------
+
+@function map-subtract( $map, $variable ) {
+    $result: ();
+
+    @each $key, $value in $map {
+        $result: map-merge( $result, ( #{$key}: $value - $variable ) );
+    }
+
+    @return $result;
+}
+
+// --------------------------------------------
+// Multiply a map with a number or another map.
+// --------------------------------------------
+
+@function map-inverse( $map ) {
+    $result: ();
+
+    @each $key, $value in $map {
+        $result: map-merge( $result, ( #{$key}: 100% - $value ) );
+    }
+
+    @return $result;
+}
+
+// --------------------------------------
+// Checks if the given variable is a map.
+// --------------------------------------
+
+@function is-map( $variable ) {
+    @return type-of( $variable ) == 'map';
+}

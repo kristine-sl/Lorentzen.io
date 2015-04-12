@@ -1,0 +1,41 @@
+
+// -- SiteNavigation ------------------------------------
+
+@include Component( 'SiteNavigation' )
+{
+    height: 100%;
+
+    @include Element( 'container' )
+    {
+        height: 100%;
+        margin: 0 5%;
+        padding-bottom: 20px;
+    }
+
+    @include Element( 'item' )
+    {
+        display: table;
+        height: 25%;
+        width: 100%;
+    }
+
+    @include Element( 'link' )
+    {
+        display: table-cell;
+        border-bottom: 1px solid color( 'navigationBackground' );
+        transition: background 0.2s;
+        padding-bottom: 10px;
+
+        color: black;
+        text-transform: uppercase;
+        font-weight: 200;
+        vertical-align: bottom;
+
+        @include modules( 'text-center' );
+
+        &:hover
+        {
+            border-bottom: 3px solid lighten( color( 'navigationBackground' ), 10% );
+        }
+    }
+}

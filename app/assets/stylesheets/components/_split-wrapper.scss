@@ -1,0 +1,44 @@
+
+// -- SplitWrapper ------------------------------------------
+
+@include Component( 'SplitWrapper' )
+{
+    height: 100%;
+
+    // SplitWrapper-container
+    @include Element( 'container' )
+    {
+        position: relative;
+
+        @include at( 'medium' )
+        {
+            float: left;
+            height: 100%;
+        }
+
+        // SplitWrapper-container--primary
+        @include Modifier( 'primary' )
+        {
+            height: layout( 'primaryContainerSize' );
+            background: color( 'primaryBackground' );
+
+            @include at( 'medium' )
+            {
+                width: layout( 'primaryContainerSize' );
+            }
+        }
+
+        // SplitWrapper-container--secondary
+        @include Modifier( 'secondary' )
+        {
+            height: 100% - layout( 'primaryContainerSize' );
+            background: color( 'secondaryBackground' );
+            padding: 3px 0;
+
+            @include at( 'medium' )
+            {
+                width: 100% - layout( 'primaryContainerSize' );
+            }
+        }
+    }
+}

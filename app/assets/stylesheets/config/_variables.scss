@@ -1,0 +1,43 @@
+
+// -- Variables  --------------------------------------
+
+// Aliases
+// -------
+$breakpoints: (
+    medium:   960px,
+);
+
+// Color Constants
+// ---------------
+$primary: #222;
+$secondary: #eee;
+$accent: #b13a48;
+
+// Colors
+// ------
+$colors: (
+    'action': $accent,
+    'logo': $secondary,
+    'primaryBackground': $accent,
+    'secondaryBackground': $secondary,
+    'navigationBackground': $accent,
+);
+
+// Transitions
+// -----------
+$transitions: (
+    'normal': 0.2s
+);
+
+// Layout
+// ------
+$layout: (
+    'primaryContainerSize': constant( 'GOLDEN_RATIO' ) * 100%
+);
+
+// Typography
+// ----------
+$typography: (
+    'base-font-size':   16px,
+    'base-line-height': 1.5em
+);

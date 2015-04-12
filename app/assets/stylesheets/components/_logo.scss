@@ -1,0 +1,16 @@
+
+// -- Logo ------------------------------------------
+
+@include Component( 'Logo' )
+{
+    display: inline-block;
+    margin: 0;
+
+
+    font-family: 'Lobster 1.3';
+    font-size: 32px;
+    font-weight: 200;
+    color: color( 'logo' );
+
+    @include modules( 'center-vertical', 'text-center' );
+}

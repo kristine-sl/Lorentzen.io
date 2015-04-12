@@ -1,0 +1,31 @@
+
+// -- Base Layout -------------------------------------
+
+*
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+    height: 100%;
+}
+
+body,
+ul
+{
+    margin: 0;
+}
+
+ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+a
+{
+    text-decoration: none;
+    color: color( 'action' );
+}

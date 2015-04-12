@@ -1,0 +1,4 @@
+
+@function empty( $list ) {
+    @return length( $list ) == 0;
+}
